@@ -17,13 +17,13 @@ const Header = () => {
             user?.uid ? <>
                 <span className='mx-2'>{user?.displayName}</span>
                 <button className='font-semibold' onClick={handlelogout}>Log Out</button>
+                <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
             </> : <Link className='font-semibold' to='/login'>Login</Link>
         }</Link></li>
         <li>{user?.photoURL ?
-            <img className='rounded-full h-10' src={user?.photoURL} title={user.displayName} alt="" /> : <>
+            <img className='rounded-full h-20' src={user?.photoURL} title={user.displayName} alt="" /> : <>
             </>
         }</li>
-
     </>
 
     return (

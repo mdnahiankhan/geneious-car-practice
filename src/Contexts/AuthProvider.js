@@ -11,9 +11,11 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const provider = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider);
     }
     const signin = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logout = () => {
@@ -24,6 +26,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentuser => {
             console.log(currentuser);
             setUser(currentuser);
+            setLoading(false)
         });
         return () => {
             return unsubscribe();
